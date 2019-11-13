@@ -1,5 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .canvas {
-    border: 2px solid black;
-    width: 500px;
-    height: 500px;
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
 }
