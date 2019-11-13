@@ -11,7 +11,7 @@ let xRatio;
 let yRatio;
 
 const image = new Image();
-image.src = "./luffy3.jpg";
+image.src = "./luffy.jpg";
 image.onload = function() {
   if (this.naturalWidth > this.naturalHeight) {
     canvas.width = this.naturalWidth;
@@ -77,3 +77,13 @@ function hadnleMouseUp() {
 canvas.onmousedown = handleMouseDown;
 canvas.onmousemove = handleMouseMove;
 canvas.onmouseup = hadnleMouseUp;
+
+const images = ["luffy.jpg", "luffy2.jpg", "luffy3.jpg"];
+
+function handleButtonClick(event) {
+  image.src = images[Number(event.target.id)];
+}
+
+for (button of document.querySelectorAll("button")) {
+  button.addEventListener("click", handleButtonClick);
+}
