@@ -11,10 +11,21 @@ let xRatio;
 let yRatio;
 
 const image = new Image();
-image.src = "./luffy.jpg";
+image.src = "./luffy3.jpg";
 image.onload = function() {
-  canvas.width = this.naturalWidth;
-  canvas.height = this.naturalHeight;
+  if (this.naturalWidth > this.naturalHeight) {
+    canvas.width = this.naturalWidth;
+    canvas.height =
+      this.naturalHeight * (1 + this.naturalHeight / this.naturalWidth);
+  } else if (this.naturalWidth < this.naturalHeight) {
+    canvas.height = this.naturalHeight;
+    canvas.width =
+      this.naturalWidth * (1 + this.naturalWidth / this.naturalHeight);
+  } else {
+    canvas.height = this.naturalHeight;
+    canvas.width = this.naturalWidth;
+  }
+
   xRatio = canvas.width / canvasRect.width;
   yRatio = canvas.height / canvasRect.height;
   ctx.drawImage(image, 0, 0);
